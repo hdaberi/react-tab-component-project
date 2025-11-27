@@ -20,6 +20,9 @@ const tabData = [
 
 function App() {
   const activeTab = 3;
+  const activeTabHandler = (id) => {
+    console.log({ id });
+  };
   return (
     <div className="App">
       <h1 className="top__title">Tab Component : starter file</h1>
@@ -28,13 +31,17 @@ function App() {
           {tabData.map((tab) => (
             <button
               key={tab.id}
-              className={`${activeTab === tab.id ? "active" : ""}`}>
+              onClick={() => activeTabHandler(tab.id)}
+              className={`${activeTab === tab.id ? "active" : ""}`}
+            >
               <span>{tab.title}</span>
               <span className="tab-indicator"></span>
             </button>
           ))}
         </div>
-        <div className="tab__content">{tabData.find(tab=>tab.id===activeTab).content}</div>
+        <div className="tab__content">
+          {tabData.find((tab) => tab.id === activeTab).content}
+        </div>
       </div>
     </div>
   );
