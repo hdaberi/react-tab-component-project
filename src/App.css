@@ -1,3 +1,4 @@
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -49,4 +50,10 @@
 .tab__content {
   color: var(--slate-700);
   font-size: 1.5rem;
+}
+.top__title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--slate-700);
+  margin-bottom: 2rem;
 }
