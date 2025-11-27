@@ -19,18 +19,22 @@ const tabData = [
 ];
 
 function App() {
+  const activeTab = 3;
   return (
     <div className="App">
       <h1 className="top__title">Tab Component : starter file</h1>
       <div className="tab">
         <div className="tab__header">
-          <button>ITEM ONE</button>
-          <button>ITEM TWO</button>
-          <button>ITEM THREE</button>
+          {tabData.map((tab) => (
+            <button
+              key={tab.id}
+              className={`${activeTab === tab.id ? "active" : ""}`}>
+              <span>{tab.title}</span>
+              <span className="tab-indicator"></span>
+            </button>
+          ))}
         </div>
-        <div className="tab__content">
-          dummy text ...
-        </div>
+        <div className="tab__content">{tabData.find(tab=>tab.id===activeTab).content}</div>
       </div>
     </div>
   );
