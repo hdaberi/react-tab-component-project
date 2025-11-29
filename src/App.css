@@ -8,14 +8,36 @@
 
 :root {
   --slate-300: #cbd5e1;
+  --slate-100: #fff;
   --slate-700: #334155;
   --blue-700: #1d4ed8;
 }
 
-.tab {
+.tab,
+.show__content {
   border: 1px solid var(--slate-300);
   border-radius: 1rem;
   padding: 2rem 1rem;
+}
+.show__content{
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: .5rem;
+}
+.show__content button{
+  padding: 0.8rem 1.2rem;
+  border: 1px solid var(--slate-300);
+  border-radius: 0.375rem;
+  background-color: var(--blue-700);
+  color: var(--slate-100);
+  font-size: .95rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.show__content button:hover{
+  background-color: var(--slate-300);
+  color: var(--slate-700);
 }
 
 .tab__header {

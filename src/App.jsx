@@ -20,29 +20,39 @@ const tabData = [
 
 function App() {
   const [activeTab, setActiveTab] = useState(1);
+  const [isShow, setIsShow] = useState(true);
   const activeTabHandler = (id) => {
     setActiveTab(id);
   };
   return (
     <div className="App">
       <h1 className="top__title">Tab Component : starter file</h1>
-      <div className="tab">
-        <div className="tab__header">
-          {tabData.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => activeTabHandler(tab.id)}
-              className={`${activeTab === tab.id ? "active" : ""}`}
-            >
-              <span>{tab.title}</span>
-              <span className="tab-indicator"></span>
-            </button>
-          ))}
-        </div>
-        <div className="tab__content">
-          {tabData.find((tab) => tab.id === activeTab).content}
-        </div>
+      <div className="show__content">
+        <button onClick={() => setIsShow(!isShow)}>
+          {isShow ? "Hide" : "Show"}
+        </button>
       </div>
+      {
+        isShow && (
+          <div className="tab">
+            <div className="tab__header">
+              {tabData.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => activeTabHandler(tab.id)}
+                  className={`${activeTab === tab.id ? "active" : ""}`}
+                >
+                  <span>{tab.title}</span>
+                  <span className="tab-indicator"></span>
+                </button>
+              ))}
+            </div>
+            <div className="tab__content">
+              {tabData.find((tab) => tab.id === activeTab).content}
+            </div>
+          </div>
+        )
+      }
     </div>
   );
 }
